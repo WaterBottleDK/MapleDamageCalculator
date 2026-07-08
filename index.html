@@ -41,7 +41,7 @@
 
     <div class="stat-row">
       <label>DEX</label>
-      <input type="number" id="baseDex" value="25">
+      <input type="number" id="baseDex" value="4">
       <span id="itemDex">(+0)</span>
     </div>
 
@@ -53,43 +53,73 @@
 
     <div class="stat-row">
       <label>LUK</label>
-      <input type="number" id="baseLuk" value="900">
+      <input type="number" id="baseLuk" value="4">
       <span id="itemLuk">(+0)</span>
+    </div>
+
+    <div class="stat-row">
+      <label>WA</label>
+      <input type="number" id="baseWeaponAttack" value="0">
+      <span id="itemWeaponAttack">(+0)</span>
     </div>
   </section>
 
   <section class="panel">
     <h2>Equipment</h2>
 
-    <div class="equipment-grid">
-      <button>Hat</button>
-      <button>Face</button>
-      <button>Eye</button>
-      <button>Earrings</button>
-      <button>Pendant</button>
-      <button>Top</button>
-      <button>Bottom</button>
-      <button>Shoes</button>
-      <button>Gloves</button>
-      <button>Cape</button>
-      <button>Weapon</button>
-      <button>Shield</button>
-      <button>Ring 1</button>
-      <button>Ring 2</button>
-      <button>Ring 3</button>
-      <button>Ring 4</button>
-      <button>Medal</button>
+    <div class="equipment-layout">
+      <button class="slot hat">Hat</button>
+      <button class="slot face">Face</button>
+      <button class="slot eye">Eye</button>
+      <button class="slot earrings">Earrings</button>
+      <button class="slot pendant">Pendant</button>
+
+      <button class="slot weapon-slot">Weapon</button>
+      <button class="slot shield">Shield</button>
+
+      <button class="slot top">Top</button>
+      <button class="slot bottom">Bottom</button>
+
+      <button class="slot gloves">Gloves</button>
+      <button class="slot cape">Cape</button>
+      <button class="slot shoes">Shoes</button>
+
+      <button class="slot ring1">Ring 1</button>
+      <button class="slot ring2">Ring 2</button>
+      <button class="slot ring3">Ring 3</button>
+      <button class="slot ring4">Ring 4</button>
+
+      <button class="slot pet">Pet Equip</button>
     </div>
+  </section>
+
+  <section class="panel">
+    <h2>Buffs</h2>
+
+    <label>Attack Buff</label>
+    <input type="number" id="attackBuff" value="0">
+
+    <label>Maple Warrior</label>
+    <select id="mapleWarrior">
+      <option value="0">None</option>
+      <option value="5">Maple Warrior 10 - 5%</option>
+      <option value="10">Maple Warrior 20 - 10%</option>
+    </select>
+
+    <label>Sharp Eyes</label>
+    <select id="sharpEyes">
+      <option value="none">None</option>
+      <option value="se30">Sharp Eyes 30</option>
+    </select>
   </section>
 
   <section class="panel">
     <h2>Damage Result</h2>
 
-    <p>Attack Range Min: <span id="minDamage">0</span></p>
-    <p>Attack Range Max: <span id="maxDamage">0</span></p>
-    <p>Average Damage: <span id="averageDamage">0</span></p>
+    <p>Attack Range: <span id="minDamage">0</span> ~ <span id="maxDamage">0</span></p>
+    <p>Average Skill Damage: <span id="averageDamage">0</span></p>
 
-    <button>Calculate</button>
+    <button onclick="calculateDamage()">Calculate</button>
   </section>
 
   <script src="script.js"></script>
