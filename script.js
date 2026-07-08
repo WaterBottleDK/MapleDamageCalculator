@@ -72,3 +72,22 @@ document.getElementById("attackBuff").addEventListener("input", updateBuffStats)
 
 // Run once when page loads
 updateBuffStats();
+let currentSlot = null;
+
+const equipmentButtons = document.querySelectorAll(".slot");
+
+equipmentButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        currentSlot = button;
+        document.getElementById("modalTitle").textContent = button.textContent;
+        document.getElementById("itemModal").classList.remove("hidden");
+    });
+});
+
+function closeItemModal() {
+    document.getElementById("itemModal").classList.add("hidden");
+}
+
+function saveItem() {
+    closeItemModal();
+}
