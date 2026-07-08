@@ -171,3 +171,11 @@ select {
 .modal-content input {
     width: 100%;
 }
+.slot.filled {
+    background: #b8f5b8;
+    border-color: #2e8b57;
+}
+
+.slot.filled:hover {
+    background: #98ee98;
+}
