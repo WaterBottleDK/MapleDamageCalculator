@@ -2,6 +2,18 @@ console.log("Maple Damage Calculator loaded");
 
 let currentSlotKey = null;
 
+function emptyItem(name) {
+    return {
+        name: name,
+        str: 0,
+        dex: 0,
+        int: 0,
+        luk: 0,
+        weaponAttack: 0,
+        magicAttack: 0
+    };
+}
+
 const equipment = {
     hat: emptyItem("Hat"),
     face: emptyItem("Face"),
@@ -21,18 +33,6 @@ const equipment = {
     ring2: emptyItem("Ring 2"),
     shoes: emptyItem("Shoes")
 };
-
-function emptyItem(name) {
-    return {
-        name: name,
-        str: 0,
-        dex: 0,
-        int: 0,
-        luk: 0,
-        weaponAttack: 0,
-        magicAttack: 0
-    };
-}
 
 function getNumber(id) {
     const element = document.getElementById(id);
@@ -67,17 +67,20 @@ function updateTotals() {
     const mwInt = Math.floor(baseInt * mwPercent / 100);
     const mwLuk = Math.floor(baseLuk * mwPercent / 100);
 
+    const attackBuff = getNumber("attackBuff");
+
     document.getElementById("itemStr").textContent = "(+" + (itemStr + mwStr) + ")";
     document.getElementById("itemDex").textContent = "(+" + (itemDex + mwDex) + ")";
     document.getElementById("itemInt").textContent = "(+" + (itemInt + mwInt) + ")";
     document.getElementById("itemLuk").textContent = "(+" + (itemLuk + mwLuk) + ")";
 
-    const attackBuff = getNumber("attackBuff");
     const totalWeaponAttack = itemWeaponAttack + attackBuff;
-
     document.getElementById("totalWeaponAttack").textContent = totalWeaponAttack;
 
     return {
+        totalStr: baseStr + itemStr + mwStr,
+        totalDex: baseDex + itemDex + mwDex,
+        totalInt: baseInt + itemInt + mwInt,
         totalLuk: baseLuk + itemLuk + mwLuk,
         totalWeaponAttack: totalWeaponAttack
     };
@@ -99,9 +102,23 @@ function updateSlotTooltip(slotKey) {
     button.title = tooltip;
 }
 
+function updateSlotFilled(slotKey) {
+    const item = equipment[slotKey];
+    const button = document.querySelector('[data-slot="' + slotKey + '"]');
+
+    const hasStats =
+        item.str > 0 ||
+        item.dex > 0 ||
+        item.int > 0 ||
+        item.luk > 0 ||
+        item.weaponAttack > 0 ||
+        item.magicAttack > 0;
+
+    button.classList.toggle("filled", hasStats);
+}
+
 function openItemModal(slotKey) {
     currentSlotKey = slotKey;
-
     const item = equipment[slotKey];
 
     document.getElementById("modalTitle").textContent = item.name;
@@ -131,20 +148,11 @@ function saveItem() {
     item.magicAttack = getNumber("itemEditMagicAttack");
 
     updateSlotTooltip(currentSlotKey);
+    updateSlotFilled(currentSlotKey);
     updateTotals();
     calculateDamage();
+
     closeItemModal();
-    const button = document.querySelector(`[data-slot="${currentSlotKey}"]`);
-
-const hasStats =
-    item.str > 0 ||
-    item.dex > 0 ||
-    item.int > 0 ||
-    item.luk > 0 ||
-    item.weaponAttack > 0 ||
-    item.magicAttack > 0;
-
-button.classList.toggle("filled", hasStats);
 }
 
 function calculateDamage() {
@@ -168,13 +176,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ["baseStr", "baseDex", "baseInt", "baseLuk", "mapleWarrior", "attackBuff"].forEach(function (id) {
         const element = document.getElementById(id);
+
         if (element) {
-            element.addEventListener("input", updateTotals);
-            element.addEventListener("change", updateTotals);
+            element.addEventListener("input", function () {
+                updateTotals();
+                calculateDamage();
+            });
+
+            element.addEventListener("change", function () {
+                updateTotals();
+                calculateDamage();
+            });
         }
     });
 
-    Object.keys(equipment).forEach(updateSlotTooltip);
+    Object.keys(equipment).forEach(function (slotKey) {
+        updateSlotTooltip(slotKey);
+        updateSlotFilled(slotKey);
+    });
 
     updateTotals();
 });
