@@ -23,7 +23,7 @@ function updateBuffStats() {
 
 function calculateDamage() {
   const baseLuk = getNumber("baseLuk");
-  const weaponAttack = 0;
+  const totalWeaponAttack = attackBuff;
   const attackBuff = getNumber("attackBuff");
 
   const mapleWarriorBonusLuk = getMapleWarriorBonus(baseLuk);
