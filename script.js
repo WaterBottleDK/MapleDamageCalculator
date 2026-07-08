@@ -158,13 +158,49 @@ function saveItem() {
 function calculateDamage() {
     const totals = updateTotals();
 
-    const minDamage = (totals.totalLuk * 2.5) * totals.totalWeaponAttack / 100;
-    const maxDamage = (totals.totalLuk * 5.0) * totals.totalWeaponAttack / 100;
-    const averageDamage = (minDamage + maxDamage) / 2;
+    const sharpEyesEnabled = document.getElementById("sharpEyes").checked;
 
-    document.getElementById("minDamage").textContent = Math.floor(minDamage);
-    document.getElementById("maxDamage").textContent = Math.floor(maxDamage);
-    document.getElementById("averageDamage").textContent = Math.floor(averageDamage);
+    // Claw normal range formula
+    const mastery = 0.6; // 60% mastery for now
+    const primaryStat = totals.totalLuk * 3.6;
+    const secondaryStat = totals.totalStr + totals.totalDex;
+
+    const minRange =
+        (primaryStat * 0.9 * mastery + secondaryStat) *
+        totals.totalWeaponAttack / 100;
+
+    const maxRange =
+        (primaryStat + secondaryStat) *
+        totals.totalWeaponAttack / 100;
+
+    // Triple Throw average skill damage
+    const averageBaseHit = (minRange + maxRange) / 2;
+
+    const tripleThrowMultiplier = 1.5; // 150%
+    const criticalThrowBonus = 1.0;    // +100%
+    const sharpEyesBonus = sharpEyesEnabled ? 1.4 : 0;
+
+    const baseCritRate = 0.5; // 50%
+    const sharpEyesCritRate = sharpEyesEnabled ? 0.15 : 0;
+    const totalCritRate = baseCritRate + sharpEyesCritRate;
+
+    const normalHit =
+        averageBaseHit * tripleThrowMultiplier;
+
+    const criticalHit =
+        averageBaseHit *
+        (tripleThrowMultiplier + criticalThrowBonus + sharpEyesBonus);
+
+    const averageHit =
+        (normalHit * (1 - totalCritRate)) +
+        (criticalHit * totalCritRate);
+
+    // Triple Throw = 3 hits
+    const averageTripleThrowDamage = averageHit * 3;
+
+    document.getElementById("minDamage").textContent = Math.floor(minRange);
+    document.getElementById("maxDamage").textContent = Math.floor(maxRange);
+    document.getElementById("averageDamage").textContent = Math.floor(averageTripleThrowDamage);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
