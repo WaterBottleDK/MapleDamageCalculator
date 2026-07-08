@@ -48,6 +48,7 @@ function calculateDamage() {
     const minDamage = (totalLuk * 2.5) * weaponAttack / 100;
     const maxDamage = (totalLuk * 5.0) * weaponAttack / 100;
     const averageDamage = (minDamage + maxDamage) / 2;
+    const attackDelay = Number(document.getElementById("attackSpeed").value);
 
     document.getElementById("minDamage").textContent = Math.floor(minDamage);
     document.getElementById("maxDamage").textContent = Math.floor(maxDamage);
@@ -67,6 +68,7 @@ document.getElementById("baseLuk").addEventListener("input", updateBuffStats);
 
 document.getElementById("mapleWarrior").addEventListener("change", updateBuffStats);
 document.getElementById("attackBuff").addEventListener("input", updateBuffStats);
+
 
 // Run once when page loads
 updateBuffStats();
