@@ -87,3 +87,17 @@ select {
 .ring2 { grid-column: 5; grid-row: 5; }
 
 .shoes { grid-column: 3; grid-row: 6; }
+
+.buff-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.buff-icon {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+    cursor: pointer;
+}
