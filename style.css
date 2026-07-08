@@ -8,7 +8,6 @@ h1 {
     text-align: center;
 }
 
-/* Main page layout */
 .app-layout {
     display: grid;
     grid-template-columns: 260px 1fr 260px;
@@ -16,16 +15,8 @@ h1 {
     align-items: start;
 }
 
-.left-column {
-    display: grid;
-    gap: 16px;
-}
-
-.center-column {
-    display: grid;
-    gap: 16px;
-}
-
+.left-column,
+.center-column,
 .right-column {
     display: grid;
     gap: 16px;
@@ -35,7 +26,6 @@ h1 {
     background: white;
     border: 2px solid black;
     padding: 16px;
-    margin-bottom: 16px;
 }
 
 label {
@@ -60,6 +50,7 @@ select {
 
 .stat-row label {
     width: 40px;
+    margin-top: 0;
 }
 
 .stat-row input {
@@ -89,10 +80,25 @@ select {
     cursor: pointer;
     border: 2px solid #333;
     background: #f7f7f7;
+    position: relative;
 }
 
 .slot:hover {
     background: #ddd;
+}
+
+.tick {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    color: #2ecc71;
+    font-size: 16px;
+    font-weight: bold;
+    display: none;
+}
+
+.slot.filled .tick {
+    display: block;
 }
 
 /* Equipment positions */
@@ -131,6 +137,7 @@ select {
 
 .buff-label input {
     margin: 0;
+    width: auto;
 }
 
 .buff-icon {
@@ -140,13 +147,7 @@ select {
     cursor: pointer;
 }
 
-/* Mobile layout */
-@media (max-width: 900px) {
-    .app-layout {
-        grid-template-columns: 1fr;
-    }
-   
-}
+/* Item popup */
 .modal {
     position: fixed;
     inset: 0;
@@ -171,11 +172,10 @@ select {
 .modal-content input {
     width: 100%;
 }
-.slot.filled {
-    background: #b8f5b8;
-    border-color: #2e8b57;
-}
 
-.slot.filled:hover {
-    background: #98ee98;
+/* Tablet / phone layout */
+@media (max-width: 900px) {
+    .app-layout {
+        grid-template-columns: 1fr;
+    }
 }
