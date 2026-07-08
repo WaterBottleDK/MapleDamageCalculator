@@ -93,25 +93,25 @@
     </div>
   </section>
 
-  <section class="panel">
-    <h2>Buffs</h2>
+ <section class="panel">
+  <h2>Buffs</h2>
 
-    <label>Attack Buff</label>
-    <input type="number" id="attackBuff" value="0">
+  <label>Attack Buff</label>
+  <input type="number" id="attackBuff" value="0">
 
-    <label>Maple Warrior</label>
-    <select id="mapleWarrior">
-      <option value="0">None</option>
-      <option value="5">Maple Warrior 10 - 5%</option>
-      <option value="10">Maple Warrior 20 - 10%</option>
-    </select>
+  <label>Maple Warrior</label>
+  <select id="mapleWarrior" onchange="updateBuffStats()">
+    <option value="0">None</option>
+    <option value="5">Maple Warrior 10 - 5%</option>
+    <option value="10">Maple Warrior 20 - 10%</option>
+    <option value="13">Maple Warrior 30 - 13%</option>
+  </select>
 
-    <label>Sharp Eyes</label>
-    <select id="sharpEyes">
-      <option value="none">None</option>
-      <option value="se30">Sharp Eyes 30</option>
-    </select>
-  </section>
+  <label>
+    <input type="checkbox" id="sharpEyes">
+    Sharp Eyes (+15% critical rate, +140% critical damage)
+  </label>
+</section>
 
   <section class="panel">
     <h2>Damage Result</h2>
