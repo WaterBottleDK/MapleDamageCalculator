@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<script src="script.js"></script>
 <html lang="en">
 
 <head>
@@ -9,14 +8,15 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-    
+
 <body>
 
     <h1>Maple Damage Calculator</h1>
 
     <div class="app-layout">
 
-        <!-- LEFT COLUMN -->
+        <!-- ================= LEFT ================= -->
+
         <div class="left-column">
 
             <section class="panel">
@@ -80,7 +80,8 @@
 
         </div>
 
-        <!-- MIDDLE COLUMN -->
+        <!-- ================= CENTER ================= -->
+
         <div class="center-column">
 
             <section class="panel">
@@ -89,23 +90,90 @@
 
                 <div class="equipment-layout">
 
-                    <button class="slot hat" data-slot="hat">Hat</button>
-                    <button class="slot face" data-slot="face">Face</button>
-                    <button class="slot star" data-slot="star">Star/Arrow</button>
-                    <button class="slot ring3" data-slot="ring3">Ring 3</button>
-                    <button class="slot ring4" data-slot="ring4">Ring 4</button>
-                    <button class="slot eye" data-slot="eye">Eye</button>
-                    <button class="slot earrings" data-slot="earrings">Earrings</button>
-                    <button class="slot cape" data-slot="cape">Cape</button>
-                    <button class="slot top" data-slot="top">Top</button>
-                    <button class="slot pendant" data-slot="pendant">Pendant</button>
-                    <button class="slot weapon-slot" data-slot="weapon">Weapon</button>
-                    <button class="slot shield" data-slot="shield">Shield</button>
-                    <button class="slot gloves" data-slot="gloves">Gloves</button>
-                    <button class="slot bottom" data-slot="bottom">Bottom</button>
-                    <button class="slot ring1" data-slot="ring1">Ring 1</button>
-                    <button class="slot ring2" data-slot="ring2">Ring 2</button>
-                    <button class="slot shoes" data-slot="shoes">Shoes</button>
+                    <button class="slot hat" data-slot="hat">
+                        <span class="tick">✓</span>
+                        Hat
+                    </button>
+
+                    <button class="slot face" data-slot="face">
+                        <span class="tick">✓</span>
+                        Face
+                    </button>
+
+                    <button class="slot star" data-slot="star">
+                        <span class="tick">✓</span>
+                        Star/Arrow
+                    </button>
+
+                    <button class="slot ring3" data-slot="ring3">
+                        <span class="tick">✓</span>
+                        Ring 3
+                    </button>
+
+                    <button class="slot ring4" data-slot="ring4">
+                        <span class="tick">✓</span>
+                        Ring 4
+                    </button>
+
+                    <button class="slot eye" data-slot="eye">
+                        <span class="tick">✓</span>
+                        Eye
+                    </button>
+
+                    <button class="slot earrings" data-slot="earrings">
+                        <span class="tick">✓</span>
+                        Earrings
+                    </button>
+
+                    <button class="slot cape" data-slot="cape">
+                        <span class="tick">✓</span>
+                        Cape
+                    </button>
+
+                    <button class="slot top" data-slot="top">
+                        <span class="tick">✓</span>
+                        Top
+                    </button>
+
+                    <button class="slot pendant" data-slot="pendant">
+                        <span class="tick">✓</span>
+                        Pendant
+                    </button>
+
+                    <button class="slot weapon-slot" data-slot="weapon">
+                        <span class="tick">✓</span>
+                        Weapon
+                    </button>
+
+                    <button class="slot shield" data-slot="shield">
+                        <span class="tick">✓</span>
+                        Shield
+                    </button>
+
+                    <button class="slot gloves" data-slot="gloves">
+                        <span class="tick">✓</span>
+                        Gloves
+                    </button>
+
+                    <button class="slot bottom" data-slot="bottom">
+                        <span class="tick">✓</span>
+                        Bottom
+                    </button>
+
+                    <button class="slot ring1" data-slot="ring1">
+                        <span class="tick">✓</span>
+                        Ring 1
+                    </button>
+
+                    <button class="slot ring2" data-slot="ring2">
+                        <span class="tick">✓</span>
+                        Ring 2
+                    </button>
+
+                    <button class="slot shoes" data-slot="shoes">
+                        <span class="tick">✓</span>
+                        Shoes
+                    </button>
 
                 </div>
 
@@ -113,7 +181,7 @@
 
             <section class="panel">
 
-                <h2>Damage Result</h2>
+                <h2>Damage</h2>
 
                 <p>
                     <strong>Attack Range:</strong>
@@ -135,7 +203,8 @@
 
         </div>
 
-        <!-- RIGHT COLUMN -->
+        <!-- ================= RIGHT ================= -->
+
         <div class="right-column">
 
             <section class="panel">
@@ -143,16 +212,17 @@
                 <h2>Buffs</h2>
 
                 <label>Attack Buff</label>
-                    <input type="number" id="attackBuff" value="0">
-                    
-                    <label>Attack Speed</label>
-                    <select id="attackSpeed">
-                        <option value="600">Faster (2)</option>
-                        <option value="660">Faster (3)</option>
-                        <option value="720">Fast (4)</option>
-                        <option value="750">Fast (5)</option>
-                        <option value="810" selected>Normal (6)</option>
-                    </select>
+                <input type="number" id="attackBuff" value="0">
+
+                <label>Attack Speed</label>
+
+                <select id="attackSpeed">
+                    <option value="600">Faster (2)</option>
+                    <option value="660">Faster (3)</option>
+                    <option value="720">Fast (4)</option>
+                    <option value="750">Fast (5)</option>
+                    <option value="810" selected>Normal (6)</option>
+                </select>
 
                 <label>Maple Warrior</label>
 
@@ -170,8 +240,8 @@
                     <input type="checkbox" id="sharpEyes">
 
                     <img src="images/3121002.png"
-                         class="buff-icon"
-                         alt="Sharp Eyes">
+                        class="buff-icon"
+                        alt="Sharp Eyes">
 
                 </label>
 
@@ -181,9 +251,10 @@
 
     </div>
 
-        <!-- Equipment Popup -->
+    <!-- ================= ITEM POPUP ================= -->
 
     <div id="itemModal" class="modal hidden">
+
         <div class="modal-content">
 
             <h2 id="modalTitle">Item</h2>
@@ -212,8 +283,10 @@
             <button onclick="closeItemModal()">Cancel</button>
 
         </div>
+
     </div>
 
+    <script src="script.js"></script>
 
 </body>
 
