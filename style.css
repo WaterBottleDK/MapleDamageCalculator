@@ -112,10 +112,4 @@ select {
     border: 1px solid #777;
     background: white;
 }
-.buff-label input{
-    margin:0;
-}
 
-.buff-icon{
-    margin-left:0;
-}
