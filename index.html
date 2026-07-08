@@ -1,16 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maple Damage Calculator</title>
+  <title>Maple Damage Calculator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <h1>Maple Damage Calculator</h1>
+  <h1>Maple Damage Calculator</h1>
 
-    <p>Welcome to my website!</p>
+  <section class="panel">
+    <h2>Character</h2>
 
+    <label>Name</label>
+    <input type="text" id="characterName">
+
+    <label>Class</label>
+    <select id="characterClass">
+      <option>Night Lord</option>
+    </select>
+
+    <label>Weapon</label>
+    <select id="weapon">
+      <option>Claw</option>
+    </select>
+
+    <label>Skill</label>
+    <select id="skill">
+      <option>Triple Throw</option>
+    </select>
+  </section>
+
+  <section class="panel">
+    <h2>Stats</h2>
+
+    <div class="stat-row">
+      <label>STR</label>
+      <input type="number" id="baseStr" value="4">
+      <span id="itemStr">(+0)</span>
+    </div>
+
+    <div class="stat-row">
+      <label>DEX</label>
+      <input type="number" id="baseDex" value="25">
+      <span id="itemDex">(+0)</span>
+    </div>
+
+    <div class="stat-row">
+      <label>INT</label>
+      <input type="number" id="baseInt" value="4">
+      <span id="itemInt">(+0)</span>
+    </div>
+
+    <div class="stat-row">
+      <label>LUK</label>
+      <input type="number" id="baseLuk" value="900">
+      <span id="itemLuk">(+0)</span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Equipment</h2>
+
+    <div class="equipment-grid">
+      <button>Hat</button>
+      <button>Face</button>
+      <button>Eye</button>
+      <button>Earrings</button>
+      <button>Pendant</button>
+      <button>Top</button>
+      <button>Bottom</button>
+      <button>Shoes</button>
+      <button>Gloves</button>
+      <button>Cape</button>
+      <button>Weapon</button>
+      <button>Shield</button>
+      <button>Ring 1</button>
+      <button>Ring 2</button>
+      <button>Ring 3</button>
+      <button>Ring 4</button>
+      <button>Medal</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Damage Result</h2>
+
+    <p>Attack Range Min: <span id="minDamage">0</span></p>
+    <p>Attack Range Max: <span id="maxDamage">0</span></p>
+    <p>Average Damage: <span id="averageDamage">0</span></p>
+
+    <button>Calculate</button>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
