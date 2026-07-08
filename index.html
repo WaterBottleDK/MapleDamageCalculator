@@ -13,167 +13,177 @@
 
     <h1>Maple Damage Calculator</h1>
 
-    <!-- ========================= -->
-    <!-- Character -->
-    <!-- ========================= -->
+    <div class="app-layout">
 
-    <section class="panel">
+        <!-- LEFT COLUMN -->
+        <div class="left-column">
 
-        <h2>Character</h2>
+            <section class="panel">
 
-        <label>Name</label>
-        <input type="text" id="characterName">
+                <h2>Character</h2>
 
-        <label>Class</label>
-        <select id="characterClass">
-            <option>Night Lord</option>
-        </select>
+                <label>Name</label>
+                <input type="text" id="characterName">
 
-        <label>Weapon</label>
-        <select id="weapon">
-            <option>Claw</option>
-        </select>
+                <label>Class</label>
+                <select id="characterClass">
+                    <option>Night Lord</option>
+                </select>
 
-        <label>Skill</label>
-        <select id="skill">
-            <option>Triple Throw</option>
-        </select>
+                <label>Weapon</label>
+                <select id="weapon">
+                    <option>Claw</option>
+                </select>
 
-    </section>
+                <label>Skill</label>
+                <select id="skill">
+                    <option>Triple Throw</option>
+                </select>
 
-    <!-- ========================= -->
-    <!-- Stats -->
-    <!-- ========================= -->
+            </section>
 
-    <section class="panel">
+            <section class="panel">
 
-        <h2>Stats</h2>
+                <h2>Stats</h2>
 
-        <div class="stat-row">
-            <label>STR</label>
-            <input type="number" id="baseStr" value="4">
-            <span id="itemStr">(+0)</span>
-        </div>
+                <div class="stat-row">
+                    <label>STR</label>
+                    <input type="number" id="baseStr" value="4">
+                    <span id="itemStr">(+0)</span>
+                </div>
 
-        <div class="stat-row">
-            <label>DEX</label>
-            <input type="number" id="baseDex" value="4">
-            <span id="itemDex">(+0)</span>
-        </div>
+                <div class="stat-row">
+                    <label>DEX</label>
+                    <input type="number" id="baseDex" value="4">
+                    <span id="itemDex">(+0)</span>
+                </div>
 
-        <div class="stat-row">
-            <label>INT</label>
-            <input type="number" id="baseInt" value="4">
-            <span id="itemInt">(+0)</span>
-        </div>
+                <div class="stat-row">
+                    <label>INT</label>
+                    <input type="number" id="baseInt" value="4">
+                    <span id="itemInt">(+0)</span>
+                </div>
 
-        <div class="stat-row">
-            <label>LUK</label>
-            <input type="number" id="baseLuk" value="4">
-            <span id="itemLuk">(+0)</span>
-        </div>
+                <div class="stat-row">
+                    <label>LUK</label>
+                    <input type="number" id="baseLuk" value="4">
+                    <span id="itemLuk">(+0)</span>
+                </div>
 
-        <div class="stat-row">
-            <label>WA</label>
-            <span id="totalWeaponAttack" class="wa-value">0</span>
-        </div>
+                <div class="stat-row">
+                    <label>WA</label>
+                    <span id="totalWeaponAttack" class="wa-value">0</span>
+                </div>
 
-    </section>
-
-    <!-- ========================= -->
-    <!-- Equipment -->
-    <!-- ========================= -->
-
-    <section class="panel">
-
-        <h2>Equipment</h2>
-
-        <div class="equipment-layout">
-
-            <button class="slot hat">Hat</button>
-
-            <button class="slot face">Face</button>
-
-            <button class="slot star">Star/Arrow</button>
-
-            <button class="slot ring3">Ring 3</button>
-            <button class="slot ring4">Ring 4</button>
-
-            <button class="slot eye">Eye</button>
-            <button class="slot earrings">Earrings</button>
-
-            <button class="slot cape">Cape</button>
-            <button class="slot top">Top</button>
-            <button class="slot pendant">Pendant</button>
-            <button class="slot weapon-slot">Weapon</button>
-            <button class="slot shield">Shield</button>
-
-            <button class="slot gloves">Gloves</button>
-            <button class="slot bottom">Bottom</button>
-
-            <button class="slot ring1">Ring 1</button>
-            <button class="slot ring2">Ring 2</button>
-
-            <button class="slot shoes">Shoes</button>
+            </section>
 
         </div>
 
-    </section>
+        <!-- MIDDLE COLUMN -->
+        <div class="center-column">
 
-    <!-- ========================= -->
-    <!-- Buffs -->
-    <!-- ========================= -->
+            <section class="panel">
 
-    <section class="panel">
+                <h2>Equipment</h2>
 
-        <h2>Buffs</h2>
+                <div class="equipment-layout">
 
-        <label>Attack Buff</label>
-        <input type="number" id="attackBuff" value="0">
+                    <button class="slot hat">Hat</button>
 
-        <label>Maple Warrior</label>
+                    <button class="slot face">Face</button>
 
-        <select id="mapleWarrior">
-            <option value="0">None</option>
-            <option value="5">Maple Warrior 10 (5%)</option>
-            <option value="10">Maple Warrior 20 (10%)</option>
-            <option value="13">Maple Warrior 30 (13%)</option>
-        </select>
+                    <button class="slot star">Star/Arrow</button>
 
-        <br><br>
+                    <button class="slot ring3">Ring 3</button>
+                    <button class="slot ring4">Ring 4</button>
 
-        <label class="buff-label">
-            <input type="checkbox" id="sharpEyes">
-            <img src="images/3121002.png" class="buff-icon" alt="Sharp Eyes">
-        </label>
+                    <button class="slot eye">Eye</button>
+                    <button class="slot earrings">Earrings</button>
 
-    </section>
+                    <button class="slot cape">Cape</button>
 
-    <!-- ========================= -->
-    <!-- Damage -->
-    <!-- ========================= -->
+                    <button class="slot top">Top</button>
 
-    <section class="panel">
+                    <button class="slot pendant">Pendant</button>
 
-        <h2>Damage Result</h2>
+                    <button class="slot weapon-slot">Weapon</button>
 
-        <p>
-            Attack Range :
-            <span id="minDamage">0</span>
-            ~
-            <span id="maxDamage">0</span>
-        </p>
+                    <button class="slot shield">Shield</button>
 
-        <p>
-            Average Skill Damage :
-            <span id="averageDamage">0</span>
-        </p>
+                    <button class="slot gloves">Gloves</button>
 
-        <button onclick="calculateDamage()">
-            Calculate
-        </button>
+                    <button class="slot bottom">Bottom</button>
 
-    </section>
+                    <button class="slot ring1">Ring 1</button>
+
+                    <button class="slot ring2">Ring 2</button>
+
+                    <button class="slot shoes">Shoes</button>
+
+                </div>
+
+            </section>
+
+            <section class="panel">
+
+                <h2>Damage Result</h2>
+
+                <p>
+                    <strong>Attack Range:</strong>
+                    <span id="minDamage">0</span>
+                    ~
+                    <span id="maxDamage">0</span>
+                </p>
+
+                <p>
+                    <strong>Average Skill Damage:</strong>
+                    <span id="averageDamage">0</span>
+                </p>
+
+                <button onclick="calculateDamage()">
+                    Calculate
+                </button>
+
+            </section>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="right-column">
+
+            <section class="panel">
+
+                <h2>Buffs</h2>
+
+                <label>Attack Buff</label>
+                <input type="number" id="attackBuff" value="0">
+
+                <label>Maple Warrior</label>
+
+                <select id="mapleWarrior">
+                    <option value="0">None</option>
+                    <option value="5">Maple Warrior 10 (5%)</option>
+                    <option value="10">Maple Warrior 20 (10%)</option>
+                    <option value="13">Maple Warrior 30 (13%)</option>
+                </select>
+
+                <br><br>
+
+                <label class="buff-label">
+
+                    <input type="checkbox" id="sharpEyes">
+
+                    <img src="3121002.png"
+                         class="buff-icon"
+                         alt="Sharp Eyes">
+
+                </label>
+
+            </section>
+
+        </div>
+
+    </div>
 
     <script src="script.js"></script>
 
