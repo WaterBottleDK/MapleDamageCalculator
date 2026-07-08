@@ -88,10 +88,10 @@ select {
 
 .shoes { grid-column: 3; grid-row: 6; }
 
-.buff-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+.buff-label{
+    display:inline-flex;
+    align-items:center;
+    gap:2px;
 }
 
 .buff-icon {
@@ -111,4 +111,11 @@ select {
 
     border: 1px solid #777;
     background: white;
+}
+.buff-label input{
+    margin:0;
+}
+
+.buff-icon{
+    margin-left:0;
 }
