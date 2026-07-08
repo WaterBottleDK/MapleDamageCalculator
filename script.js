@@ -23,13 +23,13 @@ function updateBuffStats() {
 
 function calculateDamage() {
   const baseLuk = getNumber("baseLuk");
-  const baseWeaponAttack = 0;
+  const weaponAttack = 0;
   const attackBuff = getNumber("attackBuff");
 
   const mapleWarriorBonusLuk = getMapleWarriorBonus(baseLuk);
 
   const totalLuk = baseLuk + mapleWarriorBonusLuk;
-  const totalWeaponAttack = baseWeaponAttack + attackBuff;
+  const totalWeaponAttack = weaponAttack + attackBuff;
 
   const minDamage = (totalLuk * 2.5) * totalWeaponAttack / 100;
   const maxDamage = (totalLuk * 5.0) * totalWeaponAttack / 100;
@@ -47,5 +47,6 @@ document.getElementById("baseDex").addEventListener("input", updateBuffStats);
 document.getElementById("baseInt").addEventListener("input", updateBuffStats);
 document.getElementById("baseLuk").addEventListener("input", updateBuffStats);
 document.getElementById("mapleWarrior").addEventListener("change", updateBuffStats);
+document.getElementById("totalWeaponAttack").textContent = totalWeaponAttack;
 
 updateBuffStats();
