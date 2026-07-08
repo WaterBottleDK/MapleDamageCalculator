@@ -42,14 +42,46 @@ select {
   width: 80px;
 }
 
-.equipment-grid {
+.equipment-layout {
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  gap: 10px;
+  grid-template-columns: repeat(5, 80px);
+  grid-template-rows: repeat(8, 60px);
+  gap: 8px;
+  justify-content: center;
 }
 
-.equipment-grid button {
-  height: 50px;
+.slot {
   font-weight: bold;
   cursor: pointer;
+  border: 2px solid #333;
+  background: #f7f7f7;
 }
+
+.slot:hover {
+  background: #ddd;
+}
+
+.hat { grid-column: 3; grid-row: 1; }
+
+.face { grid-column: 2; grid-row: 2; }
+.eye { grid-column: 4; grid-row: 2; }
+
+.earrings { grid-column: 3; grid-row: 2; }
+.pendant { grid-column: 3; grid-row: 3; }
+
+.weapon-slot { grid-column: 1; grid-row: 4; }
+.shield { grid-column: 5; grid-row: 4; }
+
+.top { grid-column: 3; grid-row: 4; }
+.bottom { grid-column: 3; grid-row: 5; }
+
+.gloves { grid-column: 2; grid-row: 6; }
+.cape { grid-column: 4; grid-row: 6; }
+.shoes { grid-column: 3; grid-row: 7; }
+
+.ring1 { grid-column: 1; grid-row: 8; }
+.ring2 { grid-column: 2; grid-row: 8; }
+.ring3 { grid-column: 4; grid-row: 8; }
+.ring4 { grid-column: 5; grid-row: 8; }
+
+.pet { grid-column: 3; grid-row: 8; }
