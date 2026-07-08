@@ -1,1 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  margin: 20px;
+}
 
+h1 {
+  text-align: center;
+}
+
+.panel {
+  background: white;
+  border: 2px solid black;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input,
+select {
+  width: 200px;
+  padding: 6px;
+  margin-top: 4px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-row label {
+  width: 40px;
+}
+
+.stat-row input {
+  width: 80px;
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+}
+
+.equipment-grid button {
+  height: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
