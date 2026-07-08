@@ -134,6 +134,17 @@ function saveItem() {
     updateTotals();
     calculateDamage();
     closeItemModal();
+    const button = document.querySelector(`[data-slot="${currentSlotKey}"]`);
+
+const hasStats =
+    item.str > 0 ||
+    item.dex > 0 ||
+    item.int > 0 ||
+    item.luk > 0 ||
+    item.weaponAttack > 0 ||
+    item.magicAttack > 0;
+
+button.classList.toggle("filled", hasStats);
 }
 
 function calculateDamage() {
