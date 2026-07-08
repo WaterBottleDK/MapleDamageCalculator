@@ -1,52 +1,72 @@
 console.log("Maple Damage Calculator loaded");
 
-function getNumber(id) {
-  return Number(document.getElementById(id).value) || 0;
-}
-
-function getMapleWarriorBonus(baseStat) {
-  const mapleWarriorPercent = getNumber("mapleWarrior");
-  return Math.floor(baseStat * mapleWarriorPercent / 100);
-}
+// ===============================
+// Update Maple Warrior Bonus
+// ===============================
 
 function updateBuffStats() {
-  const baseStr = getNumber("baseStr");
-  const baseDex = getNumber("baseDex");
-  const baseInt = getNumber("baseInt");
-  const baseLuk = getNumber("baseLuk");
 
-  document.getElementById("itemStr").textContent = `(+${getMapleWarriorBonus(baseStr)})`;
-  document.getElementById("itemDex").textContent = `(+${getMapleWarriorBonus(baseDex)})`;
-  document.getElementById("itemInt").textContent = `(+${getMapleWarriorBonus(baseInt)})`;
-  document.getElementById("itemLuk").textContent = `(+${getMapleWarriorBonus(baseLuk)})`;
+    const baseStr = Number(document.getElementById("baseStr").value) || 0;
+    const baseDex = Number(document.getElementById("baseDex").value) || 0;
+    const baseInt = Number(document.getElementById("baseInt").value) || 0;
+    const baseLuk = Number(document.getElementById("baseLuk").value) || 0;
+
+    const mwPercent = Number(document.getElementById("mapleWarrior").value);
+
+    const mwStr = Math.floor(baseStr * mwPercent / 100);
+    const mwDex = Math.floor(baseDex * mwPercent / 100);
+    const mwInt = Math.floor(baseInt * mwPercent / 100);
+    const mwLuk = Math.floor(baseLuk * mwPercent / 100);
+
+    document.getElementById("itemStr").textContent = "(+" + mwStr + ")";
+    document.getElementById("itemDex").textContent = "(+" + mwDex + ")";
+    document.getElementById("itemInt").textContent = "(+" + mwInt + ")";
+    document.getElementById("itemLuk").textContent = "(+" + mwLuk + ")";
+
+    // Weapon Attack (currently only from Attack Buff)
+    const attackBuff = Number(document.getElementById("attackBuff").value) || 0;
+
+    document.getElementById("totalWeaponAttack").textContent = attackBuff;
 }
+
+// ===============================
+// Calculate Triple Throw Damage
+// ===============================
 
 function calculateDamage() {
-  const baseLuk = getNumber("baseLuk");
-  const totalWeaponAttack = attackBuff;
-  const attackBuff = getNumber("attackBuff");
 
-  const mapleWarriorBonusLuk = getMapleWarriorBonus(baseLuk);
+    const baseLuk = Number(document.getElementById("baseLuk").value) || 0;
 
-  const totalLuk = baseLuk + mapleWarriorBonusLuk;
-  const totalWeaponAttack = weaponAttack + attackBuff;
+    const mwPercent = Number(document.getElementById("mapleWarrior").value);
 
-  const minDamage = (totalLuk * 2.5) * totalWeaponAttack / 100;
-  const maxDamage = (totalLuk * 5.0) * totalWeaponAttack / 100;
-  const averageDamage = (minDamage + maxDamage) / 2;
+    const mwLuk = Math.floor(baseLuk * mwPercent / 100);
 
-  document.getElementById("minDamage").textContent = Math.floor(minDamage);
-  document.getElementById("maxDamage").textContent = Math.floor(maxDamage);
-  document.getElementById("averageDamage").textContent = Math.floor(averageDamage);
+    const totalLuk = baseLuk + mwLuk;
 
-  updateBuffStats();
+    const weaponAttack = Number(document.getElementById("attackBuff").value) || 0;
+
+    const minDamage = (totalLuk * 2.5) * weaponAttack / 100;
+    const maxDamage = (totalLuk * 5.0) * weaponAttack / 100;
+    const averageDamage = (minDamage + maxDamage) / 2;
+
+    document.getElementById("minDamage").textContent = Math.floor(minDamage);
+    document.getElementById("maxDamage").textContent = Math.floor(maxDamage);
+    document.getElementById("averageDamage").textContent = Math.floor(averageDamage);
+
+    updateBuffStats();
 }
+
+// ===============================
+// Event Listeners
+// ===============================
 
 document.getElementById("baseStr").addEventListener("input", updateBuffStats);
 document.getElementById("baseDex").addEventListener("input", updateBuffStats);
 document.getElementById("baseInt").addEventListener("input", updateBuffStats);
 document.getElementById("baseLuk").addEventListener("input", updateBuffStats);
-document.getElementById("mapleWarrior").addEventListener("change", updateBuffStats);
-document.getElementById("totalWeaponAttack").textContent = totalWeaponAttack;
 
+document.getElementById("mapleWarrior").addEventListener("change", updateBuffStats);
+document.getElementById("attackBuff").addEventListener("input", updateBuffStats);
+
+// Run once when page loads
 updateBuffStats();
