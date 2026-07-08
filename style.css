@@ -89,10 +89,9 @@ select {
 .shoes { grid-column: 3; grid-row: 6; }
 
 .buff-label {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    margin-top: 10px;
+    gap: 4px;
 }
 
 .buff-icon {
